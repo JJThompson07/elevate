@@ -1,0 +1,103 @@
+<?php
+
+/**
+ * @file
+ * Bootstrap sub-theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\paragraphs\Entity\Paragraph;
+
+function josh_theme_suggestions_alter(&$suggestions, $variables, $hook) {
+  if ($hook == 'views_view') {
+    $view = $variables['view'];
+    $viewID = $view->id();
+    $original_theme_hook = $variables['theme_hook_original'];
+    // add new theme suggestion
+    $suggestions[] = $original_theme_hook . '__' . str_replace('-', '_', $viewID);
+  }
+
+  if ($hook == 'views_view_unformatted') {
+    $view = $variables['view'];
+    $viewID = $view->id();
+    $original_theme_hook = $variables['theme_hook_original'];
+    // add new theme suggestion
+    $suggestions[] = $original_theme_hook . '__' . str_replace('-', '_', $viewID);
+  }
+
+  // if ($hook == 'node') {
+  //   $node = $variables['elements']['#node'];
+  //   $nodeType = $node->getType();
+  //   $viewMode = $variables['elements']['#view_mode'];
+
+  //   if ($nodeType == 'workout') {
+  //     if ($viewMode == 'teaser' || $viewMode == 'workout_view') {
+  //       $original_theme_hook = $variables['theme_hook_original'];
+  //       $suggestions[] = $original_theme_hook . '__view_mode__' . str_replace('-', '_', $nodeType);
+  //     }
+  //   }
+  // }
+}
+
+function josh_page_attachments_alter(array &$attachments) {
+  $apple_touch_icon = array(
+    'rel' => 'apple-touch-icon',
+    'href' => '/web/themes/josh/images/favicons/apple-touch-icon.png',
+    'sizes' => '180x180',
+  );
+  $icon = array(
+    'rel' => 'icon',
+    'href' => '/web/themes/josh/images/favicons/favicon-32x32.png',
+    'sizes' => '32x32',
+    'type' => 'image/png',
+  );
+  $icon_small = array(
+    'rel' => 'icon-small',
+    'href' => '/web/themes/josh/images/favicons/favicon-16x16.png',
+    'sizes' => '16x16',
+    'type' => 'image/png',
+  );
+  $manifest = array(
+    'rel' => 'manifest',
+    'href' => '/web/themes/josh/images/favicons/site.webmanifest',
+  );
+  $mask_icon = array(
+    'rel' => 'mask_icon',
+    'href' => '/web/themes/josh/images/favicons/safari-pinned-tab.svg',
+    'color' => '#5bbad5',
+  );
+
+  $tile_color = array(
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'name' => 'msapplication-TileColor',
+      'content' => '#da532c',
+    ),
+  );
+  $config = array(
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'name' => 'msapplication-config',
+      'content' => '/web/themes/josh/images/favicons/browserconfig.xml',
+    ),
+  );
+  $theme_color = array(
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'name' => 'theme-color',
+      'content' => '#ffffff',
+    ),
+  );
+
+  $attachments['#attached']['html_head_link'][] = [$apple_touch_icon, FALSE];
+  $attachments['#attached']['html_head_link'][] = [$icon, FALSE];
+  $attachments['#attached']['html_head_link'][] = [$icon_small, FALSE];
+  $attachments['#attached']['html_head_link'][] = [$manifest, FALSE];
+  $attachments['#attached']['html_head_link'][] = [$mask_icon, FALSE];
+  $attachments['#attached']['html_head'][] = [$tile_color, 'msapplication-TileColor'];
+  $attachments['#attached']['html_head'][] = [$config, 'msapplication-config'];
+  $attachments['#attached']['html_head'][] = [$theme_color, 'theme-color'];
+}

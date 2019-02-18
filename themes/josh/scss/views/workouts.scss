@@ -1,0 +1,46 @@
+.path-workouts {
+  .workouts__workout-item {
+
+    .workout-item {
+      display: flex;
+      flex-flow: row no-wrap;
+      margin-bottom: 4rem;
+      overflow: hidden;
+      box-shadow: 5px 5px 10px 0px $grey-light;
+
+      .workout-item__image {
+        flex: 1;
+        position: relative;
+        padding: 1rem;
+
+        .img-responsive {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+        }
+      }
+      .workout-item__workout-content {
+        flex: 3;
+        background-image: linear-gradient(to right, transparent, $pale-blue, $pale-blue);
+
+        .workout-content__title {
+          // margin: 0;
+          text-align: center;
+          background: $blue;
+          overflow: hidden;
+
+          a {
+            text-decoration: none;
+            color: $dark-blue;
+          }
+
+        }
+
+        .workout-content__content {
+          padding: 1rem;
+        }
+      }
+    }
+  }
+}
