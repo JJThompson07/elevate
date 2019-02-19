@@ -7971,6 +7971,7 @@ p:last-child,
   flex: 1;
   position: relative;
   padding: 1rem;
+  border-left: solid 2px #f0f8ff;
 }
 .path-workouts .workouts__workout-item .workout-item .workout-item__image .img-responsive {
   position: absolute;
@@ -7984,14 +7985,50 @@ p:last-child,
   background-image: linear-gradient(to right, transparent, #c0e0de, #c0e0de);
 }
 .path-workouts .workouts__workout-item .workout-item .workout-item__workout-content .workout-content__title {
+  margin-left: 1rem;
   text-align: center;
-  background: #4f7cac;
   overflow: hidden;
+  background: #4f7cac;
+}
+.path-workouts .workouts__workout-item .workout-item .workout-item__workout-content .workout-content__title:hover, .path-workouts .workouts__workout-item .workout-item .workout-item__workout-content .workout-content__title:focus-within {
+  background-color: #002147;
 }
 .path-workouts .workouts__workout-item .workout-item .workout-item__workout-content .workout-content__title a {
   text-decoration: none;
-  color: #002147;
+  color: #ffffff;
+  display: block;
 }
 .path-workouts .workouts__workout-item .workout-item .workout-item__workout-content .workout-content__content {
   padding: 1rem;
+}
+.path-workouts .workouts__workout-item .workout-item .workout-item__workout-content .workout-content__content .workout-content__description {
+  margin-bottom: 1rem;
+}
+
+.muscle-group--tags {
+  display: flex;
+  flex-flow: row wrap;
+}
+.muscle-group--tags .muscle-group--tag {
+  flex: 1;
+  max-width: 25%;
+  text-align: center;
+}
+.muscle-group--tags .muscle-group--tag a {
+  display: block;
+  background-color: #4f7cac;
+  color: #ffffff;
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+  box-shadow: 2px 2px 5px 0px #b1b5b7;
+}
+.muscle-group--tags .muscle-group--tag a:hover, .muscle-group--tags .muscle-group--tag a:focus {
+  background-color: #002147;
+  text-decoration: none;
+}
+.muscle-group--tags .muscle-group--tag:first-of-type a {
+  margin-left: 0;
+}
+.muscle-group--tags .muscle-group--tag:last-of-type a {
+  margin-right: 0;
 }

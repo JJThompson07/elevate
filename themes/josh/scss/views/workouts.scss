@@ -12,6 +12,7 @@
         flex: 1;
         position: relative;
         padding: 1rem;
+        border-left: solid 2px $pale-blue-light;
 
         .img-responsive {
           position: absolute;
@@ -25,20 +26,30 @@
         background-image: linear-gradient(to right, transparent, $pale-blue, $pale-blue);
 
         .workout-content__title {
-          // margin: 0;
+          margin-left: 1rem;
           text-align: center;
-          background: $blue;
           overflow: hidden;
+          background: $blue;
+
+          &:hover,
+          &:focus-within {
+            background-color: $dark-blue;
+          }
 
           a {
             text-decoration: none;
-            color: $dark-blue;
+            color: $white;
+            display: block;
           }
 
         }
 
         .workout-content__content {
           padding: 1rem;
+
+          .workout-content__description {
+            margin-bottom: 1rem;
+          }
         }
       }
     }

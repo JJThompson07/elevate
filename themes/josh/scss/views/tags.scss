@@ -1,0 +1,33 @@
+.muscle-group--tags {
+  display: flex;
+  flex-flow: row wrap;
+
+  .muscle-group--tag {
+    flex: 1;
+    max-width: 25%;
+    text-align: center;
+
+    a {
+      display: block;
+      background-color: $blue;
+      color: $white;
+      margin: 0 1rem;
+      padding: 0.5rem 1rem;
+      box-shadow: 2px 2px 5px 0px $grey-light;
+
+      &:hover,
+      &:focus {
+        background-color: $dark-blue;
+        text-decoration: none;
+      }
+
+    }
+
+    &:first-of-type a {
+      margin-left: 0;
+    }
+    &:last-of-type a {
+      margin-right: 0;
+    }    
+  }
+}
